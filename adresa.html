@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Adresa – ARYA</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Aboreto&family=Albert+Sans:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/pages.css" />
+</head>
+<body>
+
+  <nav class="nav" id="nav">
+    <a class="nav__logo" href="index.html">
+      <img src="https://framerusercontent.com/images/gDtBIkSp9fqJEcl9VVGxgFOwPAE.png?width=140" alt="ARYA Logo" height="40" />
+    </a>
+    <ul class="nav__links">
+      <li><a href="index.html" class="nav__link">Domů</a></li>
+      <li><a href="arya.html" class="nav__link">Arya</a></li>
+      <li><a href="odchovy.html" class="nav__link">Odchovy</a></li>
+      <li><a href="blog.html" class="nav__link">Blog</a></li>
+      <li><a href="o-nas.html" class="nav__link">O nás</a></li>
+      <li><a href="adresa.html" class="nav__link active">Adresa</a></li>
+      <li><a href="kontakt.html" class="nav__link">Kontakt</a></li>
+    </ul>
+    <button class="nav__toggle" id="navToggle" aria-label="Otevřít menu">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <!-- PAGE HERO -->
+  <div class="page-hero container" id="top">
+    <p class="page-hero__eyebrow">Kde nás najdete</p>
+    <h1 class="page-hero__title">adresa</h1>
+    <p class="page-hero__subtitle">Navštívit nás můžete po předchozí domluvě. Nacházíme se mezi Kudlovem, Jaroslavicemi a Pindulou.</p>
+  </div>
+
+  <!-- MAP + INFO -->
+  <section class="section" style="padding-top: 0;">
+    <div class="container">
+      <div class="map-section__inner">
+
+        <!-- LEFT: Info -->
+        <div class="map-section__content">
+          <h2 class="section__label">kde nás najdete?</h2>
+
+          <div style="display: flex; flex-direction: column; gap: 1.5rem; margin-top: 0.5rem;">
+
+            <div>
+              <p style="font-size: 0.7rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--color-muted); margin-bottom: 0.35rem;">Adresa</p>
+              <p style="font-size: 1rem; font-weight: 500; color: var(--color-dark);">Průkop 232</p>
+              <p style="font-size: 1rem; color: var(--color-dark);">760 01 Zlín</p>
+            </div>
+
+            <div>
+              <p style="font-size: 0.7rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--color-muted); margin-bottom: 0.35rem;">GPS</p>
+              <p style="font-size: 0.9rem; color: var(--color-dark);">49°12′54″ N, 17°40′30″ E</p>
+              <p style="font-size: 0.85rem; color: var(--color-muted); margin-top: 0.2rem;">49.215, 17.675</p>
+            </div>
+
+            <div>
+              <p style="font-size: 0.7rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--color-muted); margin-bottom: 0.35rem;">Orientace</p>
+              <p style="font-size: 0.9rem; color: var(--color-muted); line-height: 1.7;">Nacházíme se mezi Kudlovem, Jaroslavicemi a Pindulou. Přesné místo označeno na mapě.</p>
+            </div>
+
+            <div>
+              <p style="font-size: 0.7rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--color-muted); margin-bottom: 0.35rem;">Návštěvy</p>
+              <p style="font-size: 0.9rem; color: var(--color-muted); line-height: 1.7;">Pouze po předchozí domluvě.</p>
+              <a href="kontakt.html" class="map-section__appt" style="margin-top: 0.75rem; display: inline-block;">Domluvit návštěvu &rsaquo;</a>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- RIGHT: Map -->
+        <div class="map-section__map">
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2611.5!2d17.6743!3d49.2148!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47131413b5d67bcd%3A0x4d45e6c0a3ef0a20!2sPr%C5%AFkop%20232%2C%20760%2001%20Zl%C3%ADn!5e0!3m2!1scs!2scz!4v1721064000000!5m2!1scs!2scz"
+            width="100%"
+            height="100%"
+            style="border: 0;"
+            allowfullscreen=""
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+            title="Mapa – Průkop 232, Zlín"
+          ></iframe>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT STRIP -->
+  <section class="contact-banner">
+    <div class="contact-banner__leaf contact-banner__leaf--left">
+      <img src="https://framerusercontent.com/images/73QfbTzRbXU8BgaYpgea58C5LWE.png" alt="" aria-hidden="true" />
+    </div>
+    <div class="contact-banner__center">
+      <h3 class="contact-banner__text">Kontaktujte mne s jakoukoli otázkou, ráda Vás uslyším :)</h3>
+      <a href="kontakt.html" style="display:inline-block; margin-top:1.25rem; font-size:0.875rem; color:var(--color-dark); border-bottom:1px solid rgba(28,28,28,0.2); padding-bottom:2px;">Napsat zprávu &rsaquo;</a>
+    </div>
+    <div class="contact-banner__leaf contact-banner__leaf--right">
+      <img src="https://framerusercontent.com/images/mBURVmGZzfTbL81f6o30oZswyvA.png" alt="" aria-hidden="true" />
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer__inner">
+      <img src="https://framerusercontent.com/images/gDtBIkSp9fqJEcl9VVGxgFOwPAE.png?width=120" alt="ARYA Logo" class="footer__logo" />
+      <p class="footer__copy">© 2026 ARYA – Where nothing is too fancy, wild, or daring!</p>
+    </div>
+  </footer>
+
+  <a href="#top" class="back-to-top" id="backToTop" aria-label="Zpět nahoru">
+    <svg viewBox="0 0 43 43" fill="none"><circle cx="21.5" cy="21.5" r="21.5" fill="rgba(28,28,28,0.15)"/><path d="M21.519 14.781L21.492 14.809L21.46 14.781L11.959 24.283L13.859 26.183L21.492 18.553L29.12 26.183L31.02 24.283Z" fill="#1C1C1C"/></svg>
+  </a>
+
+  <script src="js/app.js"></script>
+</body>
+</html>

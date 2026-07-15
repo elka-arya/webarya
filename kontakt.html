@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Kontakt – ARYA</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Aboreto&family=Albert+Sans:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/pages.css" />
+</head>
+<body>
+
+  <nav class="nav" id="nav">
+    <a class="nav__logo" href="index.html">
+      <img src="https://framerusercontent.com/images/gDtBIkSp9fqJEcl9VVGxgFOwPAE.png?width=140" alt="ARYA Logo" height="40" />
+    </a>
+    <ul class="nav__links">
+      <li><a href="index.html" class="nav__link">Domů</a></li>
+      <li><a href="arya.html" class="nav__link">Arya</a></li>
+      <li><a href="odchovy.html" class="nav__link">Odchovy</a></li>
+      <li><a href="blog.html" class="nav__link">Blog</a></li>
+      <li><a href="o-nas.html" class="nav__link">O nás</a></li>
+      <li><a href="adresa.html" class="nav__link">Adresa</a></li>
+      <li><a href="kontakt.html" class="nav__link active">Kontakt</a></li>
+    </ul>
+    <button class="nav__toggle" id="navToggle" aria-label="Otevřít menu">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <!-- PAGE HERO -->
+  <div class="page-hero container" id="top">
+    <p class="page-hero__eyebrow">Kontakt</p>
+    <h1 class="page-hero__title">napište nám</h1>
+    <p class="page-hero__subtitle">Kontaktujte nás s jakoukoli otázkou.</p>
+  </div>
+
+  <!-- CONTACT FORM -->
+  <section class="section" style="padding-top: 0;">
+    <div class="container">
+      <div style="display: grid; grid-template-columns: 1.1fr 1fr; gap: clamp(3rem, 6vw, 7rem); align-items: start;">
+
+        <form class="contact-form" action="#" method="post" novalidate>
+          <div class="form-group">
+            <label for="jmeno">Jméno</label>
+            <input type="text" id="jmeno" name="jmeno" placeholder="Vaše jméno" autocomplete="name" required />
+          </div>
+
+          <div class="form-group">
+            <label for="email">E-mail</label>
+            <input type="email" id="email" name="email" placeholder="vas@email.cz" autocomplete="email" required />
+          </div>
+
+          <div class="form-group">
+            <label for="zprava">Zpráva</label>
+            <textarea id="zprava" name="zprava" placeholder="Napište nám…" required></textarea>
+          </div>
+
+          <button type="submit" class="btn">Odeslat</button>
+        </form>
+
+        <div style="padding-top: 1rem; display: flex; flex-direction: column; gap: 1.5rem;">
+          <p class="section__label" style="margin-bottom: 0;">Jsme tu pro vás</p>
+          <p style="font-size: 0.925rem; color: var(--color-muted); line-height: 1.75;">
+            Kontaktujte mne s jakoukoli otázkou, ráda Vás uslyším :)
+          </p>
+          <div style="display: flex; flex-direction: column; gap: 0.75rem;">
+            <div>
+              <p style="font-size: 0.7rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--color-muted); margin-bottom: 0.25rem;">Adresa</p>
+              <p style="font-size: 0.9rem; color: var(--color-dark);">Průkop 232, 760 01 Zlín</p>
+            </div>
+            <div>
+              <p style="font-size: 0.7rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--color-muted); margin-bottom: 0.25rem;">Návštěvy</p>
+              <p style="font-size: 0.9rem; color: var(--color-dark);">Pouze po předchozí domluvě</p>
+            </div>
+          </div>
+          <a href="adresa.html" class="about-station__link" style="align-self: flex-start;">Jak nás najít &rsaquo;</a>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer__inner">
+      <img src="https://framerusercontent.com/images/gDtBIkSp9fqJEcl9VVGxgFOwPAE.png?width=120" alt="ARYA Logo" class="footer__logo" />
+      <p class="footer__copy">© 2026 ARYA – Where nothing is too fancy, wild, or daring!</p>
+    </div>
+  </footer>
+
+  <a href="#top" class="back-to-top" id="backToTop" aria-label="Zpět nahoru">
+    <svg viewBox="0 0 43 43" fill="none"><circle cx="21.5" cy="21.5" r="21.5" fill="rgba(28,28,28,0.15)"/><path d="M21.519 14.781L21.492 14.809L21.46 14.781L11.959 24.283L13.859 26.183L21.492 18.553L29.12 26.183L31.02 24.283Z" fill="#1C1C1C"/></svg>
+  </a>
+
+  <script src="js/app.js"></script>
+</body>
+</html>
