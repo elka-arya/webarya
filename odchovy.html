@@ -8,42 +8,94 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Aboreto&family=Albert+Sans:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="css/style.css" />
-  <link rel="stylesheet" href="css/pages.css" />
+  <link rel="stylesheet" href="css/arya.css" />
 </head>
-<body>
+<body id="top">
 
   <nav class="nav" id="nav">
     <a class="nav__logo" href="index.html">
       <img src="https://framerusercontent.com/images/gDtBIkSp9fqJEcl9VVGxgFOwPAE.png?width=140" alt="ARYA Logo" height="40" />
     </a>
     <ul class="nav__links">
-      <li><a href="index.html" class="nav__link">Domů</a></li>
-      <li><a href="arya.html" class="nav__link">Arya</a></li>
-      <li><a href="odchovy.html" class="nav__link active">Odchovy</a></li>
-      <li><a href="blog.html" class="nav__link">Blog</a></li>
-      <li><a href="o-nas.html" class="nav__link">O nás</a></li>
-      <li><a href="adresa.html" class="nav__link">Adresa</a></li>
-      <li><a href="kontakt.html" class="nav__link">Kontakt</a></li>
+      <li><a href="index.html" class="nav__link">Domů</a></li><li><a href="arya.html" class="nav__link">Arya</a></li><li><a href="odchovy.html" class="nav__link active">Odchovy</a></li><li><a href="blog.html" class="nav__link">Blog</a></li><li><a href="o-nas.html" class="nav__link">O nás</a></li><li><a href="adresa.html" class="nav__link">Adresa</a></li><li><a href="kontakt.html" class="nav__link">Kontakt</a></li>
     </ul>
     <button class="nav__toggle" id="navToggle" aria-label="Otevřít menu">
       <span></span><span></span><span></span>
     </button>
   </nav>
 
-  <div class="page-hero container">
-    <p class="page-hero__eyebrow">Chovatelská stanice</p>
-    <h1 class="page-hero__title">odchovy</h1>
-    <p class="page-hero__subtitle">Informace o vrhu, štěňatech a jejich dalším umístění. Vše o naší chovatelské činnosti.</p>
+  <div class="arya-page-hero">
+    <img src="https://framerusercontent.com/images/bBP480lQqun8UcRQHKt3iMr2xM.webp?width=2400&amp;height=530" alt="" />
   </div>
 
-  <section class="section" style="padding-top:0;">
-    <div class="container">
-      <p style="color: var(--color-muted); font-size: 0.9rem; line-height: 1.7; max-width: 560px;">
-        V současné době připravujeme informace o odchovech. Pro aktuální informace nás prosím kontaktujte přímo nebo sledujte náš Instagram.
-      </p>
-      <a href="kontakt.html" style="display:inline-block; margin-top:1.5rem; font-size:0.875rem; color:var(--color-dark); border-bottom:1px solid var(--color-border); padding-bottom:2px;">Kontaktovat nás &rsaquo;</a>
-    </div>
-  </section>
+  <div class="arya-layout">
+    <aside class="arya-sidebar">
+      <h1 class="arya-sidebar__title">vrhy</h1>
+      <p class="arya-sidebar__text">Informace o předešlých a plánovaných vrzích.</p>
+
+      <div class="arya-search">
+        <input type="text" id="searchInput" placeholder="Search…" autocomplete="off" />
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/>
+        </svg>
+      </div>
+
+      <div class="arya-filters">
+        <button class="arya-filter-btn" data-filter="zavody">Závody</button><button class="arya-filter-btn" data-filter="vrh-a">Holistic Beauty and Wellness</button><button class="arya-filter-btn" data-filter="vrh-b">Connection to Nature</button>
+      </div>
+    </aside>
+
+    <main class="arya-content" id="aryaContent">
+      <section class="arya-section" id="sec-odchovy" data-section="odchovy">
+        <h2 class="arya-section__heading">odchovy</h2>
+        <div class="arya-grid" id="grid-odchovy">
+        </div>
+      </section>
+      <section class="arya-section" id="sec-vrh-a" data-section="vrh-a">
+        <h2 class="arya-section__heading">vrh "A"</h2>
+        <div class="arya-grid" id="grid-vrh-a">
+          <a href="arya/plánovaný-vrh-a.html" class="arya-card" data-section="vrh-a" data-title="Plánovaný vrh A">
+            <div class="arya-card__img"><img src="https://framerusercontent.com/images/d9ljyi6WpDwXafHHVrYo8NnmEcg.jpeg?width=4032&amp;height=3024" alt="Plánovaný vrh A" loading="lazy" /></div>
+            <div class="arya-card__body">
+              <div class="arya-tags"><span class="arya-tag">vrh A</span></div>
+              <h4 class="arya-card__title">Plánovaný vrh "A"</h4>
+              <p class="arya-card__excerpt">Informace o plánovaném vrhu "A"</p>
+            </div>
+          </a>
+          <a href="arya/provodov-skialp.html" class="arya-card" data-section="vrh-a" data-title="Provodov skialp">
+            <div class="arya-card__img"><img src="https://framerusercontent.com/images/xMFYCZ6erWNrsI5nYRiU1FmxqZ4.jpg?width=4032&amp;height=3024" alt="Provodov skialp" loading="lazy" /></div>
+            <div class="arya-card__body">
+              <div class="arya-tags"><span class="arya-tag">Volný čas</span></div>
+              <h4 class="arya-card__title">Provodov skialp</h4>
+              <p class="arya-card__excerpt">Nejkrásnější místa máme často za domem...</p>
+            </div>
+          </a>
+        </div>
+      </section>
+      <section class="arya-section" id="sec-vrh-b" data-section="vrh-b">
+        <h2 class="arya-section__heading">VRH "B"</h2>
+        <div class="arya-grid" id="grid-vrh-b">
+          <a href="arya/hard-dog-race-2023.html" class="arya-card" data-section="vrh-b" data-title="Hard Dog Race Stříbrnice, Kraličák, Jeseníky">
+            <div class="arya-card__img"><img src="https://framerusercontent.com/images/O1osYKWJBfR5yGJFKrMyfyAugQI.jpeg?scale-down-to=1024&amp;width=4032&amp;height=3024" alt="Hard Dog Race Stříbrnice, Kraličák, Jeseníky" loading="lazy" /></div>
+            <div class="arya-card__body">
+              <div class="arya-tags"><span class="arya-tag">Soutěže</span><span class="arya-tag">HDR</span><span class="arya-tag">run</span></div>
+              <h4 class="arya-card__title">Hard Dog Race Stříbrnice, Kraličák, Jeseníky</h4>
+              <p class="arya-card__excerpt">Soutěže nejsou jen o výkonu. Jde o společně strávený čas, budování vztahu a relax.</p>
+            </div>
+          </a>
+          <a href="arya/o-putovní-pohár-starosty-města-hranice-2025.html" class="arya-card" data-section="vrh-b" data-title="O putovní pohár starosty města Hranice 2025">
+            <div class="arya-card__img"><img src="https://framerusercontent.com/images/dZJKxKnuFey88P320coNdIo.jpeg?width=5712&amp;height=4284" alt="O putovní pohár starosty města Hranice 2025" loading="lazy" /></div>
+            <div class="arya-card__body">
+              <div class="arya-tags"><span class="arya-tag">Soutěže</span><span class="arya-tag">ZKO Hranice</span><span class="arya-tag">ZVV 1</span></div>
+              <h4 class="arya-card__title">O putovní pohár starosty města Hranice 2025</h4>
+              <p class="arya-card__excerpt">Learn how to practice forest bathing to recharge and reduce stress.</p>
+            </div>
+          </a>
+        </div>
+      </section>
+      <div class="arya-no-results" id="noResults">Žádné články neodpovídají vyhledávání.</div>
+    </main>
+  </div>
 
   <footer class="footer">
     <div class="footer__inner">
@@ -52,6 +104,53 @@
     </div>
   </footer>
 
+  <a href="#top" class="back-to-top" id="backToTop" aria-label="Zpět nahoru">
+    <svg viewBox="0 0 43 43" fill="none"><circle cx="21.5" cy="21.5" r="21.5" fill="rgba(28,28,28,0.15)"/><path d="M21.519 14.781L21.492 14.809L21.46 14.781L11.959 24.283L13.859 26.183L21.492 18.553L29.12 26.183L31.02 24.283Z" fill="#1C1C1C"/></svg>
+  </a>
+
   <script src="js/app.js"></script>
+  <script>
+    const filterBtns = document.querySelectorAll('.arya-filter-btn');
+    const sections = document.querySelectorAll('.arya-section');
+    const noResults = document.getElementById('noResults');
+    const searchInput = document.getElementById('searchInput');
+    let activeFilter = 'all';
+    // page load shows all sections
+
+    function applyFilters() {
+      const query = (searchInput.value || '').trim().toLowerCase();
+      let anyVisible = false;
+      sections.forEach(sec => {
+        const sectionFilter = sec.dataset.section;
+        const showSection = activeFilter === 'all' || activeFilter === sectionFilter;
+        if (!showSection) { sec.style.display = 'none'; return; }
+        const cards = sec.querySelectorAll('.arya-card');
+        let sectionHasVisible = false;
+        cards.forEach(card => {
+          const title = (card.dataset.title || '').toLowerCase();
+          const matchesSearch = !query || title.includes(query);
+          card.style.display = matchesSearch ? '' : 'none';
+          if (matchesSearch) { sectionHasVisible = true; anyVisible = true; }
+        });
+        sec.style.display = sectionHasVisible ? '' : 'none';
+      });
+      if (noResults) noResults.classList.toggle('visible', !anyVisible);
+    }
+
+    filterBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        if (btn.classList.contains('active') && activeFilter === btn.dataset.filter) {
+          btn.classList.remove('active');
+          activeFilter = 'all';
+        } else {
+          filterBtns.forEach(b => b.classList.remove('active'));
+          btn.classList.add('active');
+          activeFilter = btn.dataset.filter;
+        }
+        applyFilters();
+      });
+    });
+    if (searchInput) searchInput.addEventListener('input', applyFilters);
+  </script>
 </body>
 </html>

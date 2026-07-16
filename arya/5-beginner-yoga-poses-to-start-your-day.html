@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>5 Beginner Yoga Poses to Start Your Day – ARYA</title>
+  <meta name="description" content="Learn five easy yoga poses to energize your mornings and create a mindful start to your day." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Aboreto&family=Albert+Sans:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../css/style.css" />
+  <link rel="stylesheet" href="../css/arya.css" />
+</head>
+<body id="top">
+
+  <nav class="nav" id="nav">
+    <a class="nav__logo" href="../index.html">
+      <img src="https://framerusercontent.com/images/gDtBIkSp9fqJEcl9VVGxgFOwPAE.png?width=140" alt="ARYA Logo" height="40" />
+    </a>
+    <ul class="nav__links"><li><a href="../index.html" class="nav__link">Domů</a></li><li><a href="../arya.html" class="nav__link active">Arya</a></li><li><a href="../odchovy.html" class="nav__link">Odchovy</a></li><li><a href="../blog.html" class="nav__link">Blog</a></li><li><a href="../o-nas.html" class="nav__link">O nás</a></li><li><a href="../adresa.html" class="nav__link">Adresa</a></li><li><a href="../kontakt.html" class="nav__link">Kontakt</a></li></ul>
+    <button class="nav__toggle" id="navToggle" aria-label="Otevřít menu">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <article class="article-arya">
+    <div class="article-arya__meta-row">
+      <div class="arya-tags"><span class="arya-tag">ZVV1</span></div>
+      <p class="article-arya__reading">2 minutes reading time</p>
+    </div>
+
+    <div class="article-arya__author">
+      <img src="https://framerusercontent.com/images/wVVZbrUkDKmJlO01KCLq0jfhqc.jpg?width=900&height=929" alt="Aria Fernandez" class="article-arya__avatar" />
+      <div>
+        <p class="article-arya__author-name">Aria Fernandez</p>
+        <p class="article-arya__date">1 year ago</p>
+      </div>
+    </div>
+
+    <h1 class="article-arya__title">5 Beginner Yoga Poses to Start Your Day</h1>
+
+    <div class="article-arya__body">
+      <p>Starting your day with yoga is a beautiful way to awaken your body, center your mind, and set a positive tone for the rest of the day. Even if you’re new to yoga, these five poses are simple and effective, requiring only a few minutes to feel their benefits.</p>
+      <p>Mountain Pose (Tadasana): This foundational pose is all about grounding yourself. Stand tall with your feet hip-width apart, shoulders relaxed, and palms facing forward. Breathe deeply and feel the connection between your feet and the ground. This pose encourages stability and mindfulness as you prepare for the day ahead.</p>
+      <p>Downward Dog (Adho Mukha Svanasana): Transition to an inverted V shape by placing your hands and feet firmly on the mat, hips raised toward the sky. This pose stretches your spine, hamstrings, and shoulders while energizing your entire body. Hold for a few breaths and feel the gentle awakening of your muscles.</p>
+      <p>Cat-Cow Stretch: Come to all fours, and alternate between arching your back (cow pose) and rounding it (cat pose). This dynamic movement is perfect for loosening up the spine, particularly after a night of rest. Focus on synchronizing your breath with each movement for added relaxation.</p>
+      <p>Child’s Pose (Balasana): Sit back on your heels, stretching your arms forward and resting your forehead on the mat. This restorative pose helps you feel grounded and calm, making it an excellent choice for moments when you need to reset.</p>
+      <p>Warrior II (Virabhadrasana II): Step one foot forward into a lunge position and extend your arms outward at shoulder height. This empowering pose strengthens your legs and core while promoting a sense of confidence and focus.</p>
+      <p>By practicing these poses every morning, you’ll cultivate a sense of mindfulness and physical readiness that will carry you through the day. Start with just 10 minutes and notice how it transforms your mornings.</p>
+    </div>
+
+    <section class="recommended">
+      <div class="recommended__header">
+        <h2 class="recommended__title">Další články</h2>
+        <a href="../arya.html" class="recommended__all">All articles</a>
+      </div>
+      <div class="recommended__grid recommended__grid--3" id="recommendedGrid"></div>
+    </section>
+  </article>
+
+  <footer class="footer">
+    <div class="footer__inner">
+      <img src="https://framerusercontent.com/images/gDtBIkSp9fqJEcl9VVGxgFOwPAE.png?width=120" alt="ARYA Logo" class="footer__logo" />
+      <p class="footer__copy">© 2026 ARYA – Where nothing is too fancy, wild, or daring!</p>
+    </div>
+  </footer>
+  <a href="#top" class="back-to-top" id="backToTop" aria-label="Zpět nahoru">
+    <svg viewBox="0 0 43 43" fill="none"><circle cx="21.5" cy="21.5" r="21.5" fill="rgba(28,28,28,0.15)"/><path d="M21.519 14.781L21.492 14.809L21.46 14.781L11.959 24.283L13.859 26.183L21.492 18.553L29.12 26.183L31.02 24.283Z" fill="#1C1C1C"/></svg>
+  </a>
+  <script src="../js/app.js"></script>
+  <script src="../js/arya-data.js"></script>
+  <script>
+    renderRecommended('yoga-poses', 'recommendedGrid', 3);
+  </script>
+</body>
+</html>

@@ -8,82 +8,105 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Aboreto&family=Albert+Sans:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="css/style.css" />
-  <link rel="stylesheet" href="css/pages.css" />
+  <link rel="stylesheet" href="css/arya.css" />
 </head>
-<body>
+<body id="top">
 
-  <!-- NAVIGATION -->
   <nav class="nav" id="nav">
     <a class="nav__logo" href="index.html">
       <img src="https://framerusercontent.com/images/gDtBIkSp9fqJEcl9VVGxgFOwPAE.png?width=140" alt="ARYA Logo" height="40" />
     </a>
     <ul class="nav__links">
-      <li><a href="index.html" class="nav__link">Domů</a></li>
-      <li><a href="arya.html" class="nav__link">Arya</a></li>
-      <li><a href="odchovy.html" class="nav__link">Odchovy</a></li>
-      <li><a href="blog.html" class="nav__link active">Blog</a></li>
-      <li><a href="o-nas.html" class="nav__link">O nás</a></li>
-      <li><a href="adresa.html" class="nav__link">Adresa</a></li>
-      <li><a href="kontakt.html" class="nav__link">Kontakt</a></li>
+      <li><a href="index.html" class="nav__link">Domů</a></li><li><a href="arya.html" class="nav__link">Arya</a></li><li><a href="odchovy.html" class="nav__link">Odchovy</a></li><li><a href="blog.html" class="nav__link active">Blog</a></li><li><a href="o-nas.html" class="nav__link">O nás</a></li><li><a href="adresa.html" class="nav__link">Adresa</a></li><li><a href="kontakt.html" class="nav__link">Kontakt</a></li>
     </ul>
     <button class="nav__toggle" id="navToggle" aria-label="Otevřít menu">
       <span></span><span></span><span></span>
     </button>
   </nav>
 
-  <!-- PAGE HERO -->
-  <div class="page-hero container">
-    <p class="page-hero__eyebrow">Sportovní kynologie</p>
-    <h1 class="page-hero__title">blog</h1>
-    <p class="page-hero__subtitle">Naše zkušenosti a otázky, které jsme nejen na začátku, ale v průběhu měly...máme :) A které mohou nyní pomoci třeba Vám.</p>
+  <div class="arya-page-hero">
+    <img src="https://framerusercontent.com/images/dZJKxKnuFey88P320coNdIo.jpeg?scale-down-to=1024&amp;width=5712&amp;height=4284" alt="" />
   </div>
 
-  <!-- BLOG GRID -->
-  <section class="section" style="padding-top:0;">
-    <div class="container">
-      <div class="blog-grid">
+  <div class="arya-layout">
+    <aside class="arya-sidebar">
+      <h1 class="arya-sidebar__title">BLOG</h1>
+      <p class="arya-sidebar__text">xxx</p>
+      <p class="arya-sidebar__text">potřebujete k získání představy o povaze, charakteru a všestranných vlastnostech.</p>
+      <p class="arya-sidebar__text">Štěnata z našeho odchovu budou Vaši všestranní parťáci pro každodenní život, volný čas i sportovní kynologii.</p>
 
-        <a href="#" class="blog-card">
-          <div class="blog-card__img">
-            <img src="https://framerusercontent.com/images/ACZmTWlvIiegPEqWsAP7NR92s.jpeg?width=800" alt="Blog – trénink" />
-          </div>
-          <div class="blog-card__body">
-            <span class="blog-card__category">Trénink</span>
-            <h3 class="blog-card__title">Začátky ve sportovní kynologii</h3>
-            <p class="blog-card__excerpt">Jak jsme začaly, co nás překvapilo a co bychom věděly lépe od začátku…</p>
-            <span class="blog-card__link">Číst článek</span>
-          </div>
-        </a>
-
-        <a href="#" class="blog-card">
-          <div class="blog-card__img">
-            <img src="https://framerusercontent.com/images/4TpqNOoD98qkvMY0VwfbTjK3jok.jpeg?width=800" alt="Soutěže" />
-          </div>
-          <div class="blog-card__body">
-            <span class="blog-card__category">Soutěže</span>
-            <h3 class="blog-card__title">ZVV 1 a SPr 3 – jak jsme to zvládly</h3>
-            <p class="blog-card__excerpt">Příprava, nervy, výsledky. Podrobnější pohled na naše zkoušky.</p>
-            <span class="blog-card__link">Číst článek</span>
-          </div>
-        </a>
-
-        <a href="#" class="blog-card">
-          <div class="blog-card__img">
-            <img src="https://framerusercontent.com/images/vSdyeh8tB4LgEaYY91jllQz9xss.jpeg?width=800" alt="Instagram" />
-          </div>
-          <div class="blog-card__body">
-            <span class="blog-card__category">Každodenní život</span>
-            <h3 class="blog-card__title">Život se sportovním psem</h3>
-            <p class="blog-card__excerpt">Arya není jen závodní pes – přečtěte si, jak vypadá náš běžný den.</p>
-            <span class="blog-card__link">Číst článek</span>
-          </div>
-        </a>
-
+      <div class="arya-search">
+        <input type="text" id="searchInput" placeholder="Search…" autocomplete="off" />
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/>
+        </svg>
       </div>
-    </div>
-  </section>
 
-  <!-- FOOTER -->
+      <div class="arya-filters">
+        <button class="arya-filter-btn" data-filter="zkousky">Zkoušky</button><button class="arya-filter-btn" data-filter="volny-cas">Volný čas</button><button class="arya-filter-btn" data-filter="zavody">Závody</button>
+      </div>
+    </aside>
+
+    <main class="arya-content" id="aryaContent">
+      <section class="arya-section" id="sec-zkousky" data-section="zkousky">
+        <h2 class="arya-section__heading">Dosažené zkoušky</h2>
+        <div class="arya-grid" id="grid-zkousky">
+          <a href="articles-blog/test-zvv1-nzř.html" class="arya-card" data-section="zkousky" data-title="TEST ZVV1 NZŘ">
+            <div class="arya-card__img arya-card__img--empty"></div>
+            <div class="arya-card__body">
+              <div class="arya-tags"><span class="arya-tag">ZVV 1</span></div>
+              <h4 class="arya-card__title">TEST ZVV1 NZŘ</h4>
+              <p class="arya-card__excerpt">TEST ZVV1 NZŘ</p>
+            </div>
+          </a>
+          <a href="articles-blog/5-beginner-yoga-poses-to-start-your-day.html" class="arya-card" data-section="zkousky" data-title="5 Beginner Yoga Poses to Start Your Day">
+            <div class="arya-card__img"><img src="https://framerusercontent.com/images/pmKRH5or014f9jszAqy0oySR07Q.webp?width=3000&amp;height=2123" alt="5 Beginner Yoga Poses to Start Your Day" loading="lazy" /></div>
+            <div class="arya-card__body">
+              <div class="arya-tags"><span class="arya-tag">ZVV1</span></div>
+              <h4 class="arya-card__title">5 Beginner Yoga Poses to Start Your Day</h4>
+              <p class="arya-card__excerpt">Learn five easy yoga poses to energize your mornings and create a mindful start to your day.</p>
+            </div>
+          </a>
+        </div>
+      </section>
+      <section class="arya-section" id="sec-volny-cas" data-section="volny-cas">
+        <h2 class="arya-section__heading">výlety a volný čas</h2>
+        <div class="arya-grid arya-grid--single" id="grid-volny-cas">
+          <a href="arya/provodov-skialp.html" class="arya-card" data-section="volny-cas" data-title="Provodov skialp">
+            <div class="arya-card__img"><img src="https://framerusercontent.com/images/xMFYCZ6erWNrsI5nYRiU1FmxqZ4.jpg?width=4032&amp;height=3024" alt="Provodov skialp" loading="lazy" /></div>
+            <div class="arya-card__body">
+              <div class="arya-tags"><span class="arya-tag">Volný čas</span></div>
+              <h4 class="arya-card__title">Provodov skialp</h4>
+              <p class="arya-card__excerpt">Nejkrásnější místa máme často za domem...</p>
+            </div>
+          </a>
+        </div>
+      </section>
+      <section class="arya-section" id="sec-zavody" data-section="zavody">
+        <h2 class="arya-section__heading">Soutěže a výsledky</h2>
+        <div class="arya-grid" id="grid-zavody">
+          <a href="arya/závod-o-starou-bačkoru.html" class="arya-card" data-section="zavody" data-title="Závod O starou bačkoru, ZKO Mladcová">
+            <div class="arya-card__img"><img src="https://framerusercontent.com/images/wh8nUqxzw23FvuL0Fa1YI0OWXvI.jpg?width=2000&amp;height=1333" alt="Závod O starou bačkoru, ZKO Mladcová" loading="lazy" /></div>
+            <div class="arya-card__body">
+              <div class="arya-tags"><span class="arya-tag">Soutěže</span><span class="arya-tag">ZKO Mladcová</span><span class="arya-tag">ZVV 1</span></div>
+              <h4 class="arya-card__title">Závod O starou bačkoru, ZKO Mladcová</h4>
+              <p class="arya-card__excerpt">Náš historicky první závod na domácí půdě ZKO Zlín Mladcová.</p>
+            </div>
+          </a>
+          <a href="arya/o-putovní-pohár-starosty-města-hranice-2025.html" class="arya-card" data-section="zavody" data-title="O putovní pohár starosty města Hranice 2025">
+            <div class="arya-card__img"><img src="https://framerusercontent.com/images/dZJKxKnuFey88P320coNdIo.jpeg?width=5712&amp;height=4284" alt="O putovní pohár starosty města Hranice 2025" loading="lazy" /></div>
+            <div class="arya-card__body">
+              <div class="arya-tags"><span class="arya-tag">Soutěže</span><span class="arya-tag">ZKO Hranice</span><span class="arya-tag">ZVV 1</span></div>
+              <h4 class="arya-card__title">O putovní pohár starosty města Hranice 2025</h4>
+              <p class="arya-card__excerpt">Learn how to practice forest bathing to recharge and reduce stress.</p>
+            </div>
+          </a>
+        </div>
+      </section>
+      <div class="arya-no-results" id="noResults">Žádné články neodpovídají vyhledávání.</div>
+    </main>
+  </div>
+
   <footer class="footer">
     <div class="footer__inner">
       <img src="https://framerusercontent.com/images/gDtBIkSp9fqJEcl9VVGxgFOwPAE.png?width=120" alt="ARYA Logo" class="footer__logo" />
@@ -96,5 +119,48 @@
   </a>
 
   <script src="js/app.js"></script>
+  <script>
+    const filterBtns = document.querySelectorAll('.arya-filter-btn');
+    const sections = document.querySelectorAll('.arya-section');
+    const noResults = document.getElementById('noResults');
+    const searchInput = document.getElementById('searchInput');
+    let activeFilter = 'all';
+    // page load shows all sections
+
+    function applyFilters() {
+      const query = (searchInput.value || '').trim().toLowerCase();
+      let anyVisible = false;
+      sections.forEach(sec => {
+        const sectionFilter = sec.dataset.section;
+        const showSection = activeFilter === 'all' || activeFilter === sectionFilter;
+        if (!showSection) { sec.style.display = 'none'; return; }
+        const cards = sec.querySelectorAll('.arya-card');
+        let sectionHasVisible = false;
+        cards.forEach(card => {
+          const title = (card.dataset.title || '').toLowerCase();
+          const matchesSearch = !query || title.includes(query);
+          card.style.display = matchesSearch ? '' : 'none';
+          if (matchesSearch) { sectionHasVisible = true; anyVisible = true; }
+        });
+        sec.style.display = sectionHasVisible ? '' : 'none';
+      });
+      if (noResults) noResults.classList.toggle('visible', !anyVisible);
+    }
+
+    filterBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        if (btn.classList.contains('active') && activeFilter === btn.dataset.filter) {
+          btn.classList.remove('active');
+          activeFilter = 'all';
+        } else {
+          filterBtns.forEach(b => b.classList.remove('active'));
+          btn.classList.add('active');
+          activeFilter = btn.dataset.filter;
+        }
+        applyFilters();
+      });
+    });
+    if (searchInput) searchInput.addEventListener('input', applyFilters);
+  </script>
 </body>
 </html>

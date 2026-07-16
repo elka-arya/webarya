@@ -170,10 +170,6 @@ ul {
   height: 100svh;
   min-height: 600px;
   overflow: hidden;
-  display: flex;
-  align-items: flex-end;
-  padding-bottom: clamp(4rem, 10vh, 8rem);
-  padding-left: var(--gutter);
 }
 
 .hero__bg {
@@ -202,9 +198,12 @@ ul {
 }
 
 .hero__content {
-  position: relative;
+  position: absolute;
+  top: 50%;
+  left: var(--gutter);
+  right: 50%;
+  transform: translateY(-55%);
   z-index: 2;
-  max-width: 620px;
 }
 
 .hero__heading {
