@@ -1,0 +1,7 @@
+# Generated / large archives
+assets/images/originals/
+scrape-data/
+
+# OS / editor
+.DS_Store
+*.log

@@ -16,7 +16,7 @@ const ARTICLES = [
     section: 'zkousky',
     tags: ['bonitace', 'výstava', 'uchovnění'],
     excerpt: 'Výstava a bonitace Ostrava – Zábřeh 2026',
-    image: 'https://framerusercontent.com/images/1DuBkSUp3k20JIg8gTUj8Ts.jpeg?lossless=1&width=1200',
+    image: 'assets/images/web/1DuBkSUp3k20JIg8gTUj8Ts/1DuBkSUp3k20JIg8gTUj8Ts-800.webp',
     date: '2026-05-10'
   },
   {
@@ -26,7 +26,7 @@ const ARTICLES = [
     section: 'zkousky',
     tags: ['ZVV1'],
     excerpt: 'Learn five easy yoga poses to energize your mornings and create a mindful start to your day.',
-    image: 'https://framerusercontent.com/images/pmKRH5or014f9jszAqy0oySR07Q.webp?width=1200',
+    image: 'assets/images/web/pmKRH5or014f9jszAqy0oySR07Q/pmKRH5or014f9jszAqy0oySR07Q-800.webp',
     date: '2024-12-01'
   },
   {
@@ -36,7 +36,7 @@ const ARTICLES = [
     section: 'zkousky',
     tags: ['Mindfulness', 'Meditation'],
     excerpt: 'Discover the benefits of mindfulness and simple techniques to incorporate it into your daily life.',
-    image: 'https://framerusercontent.com/images/5tSoGdjfrVIloq7lVu4fyikseg.webp?width=1200',
+    image: 'assets/images/web/5tSoGdjfrVIloq7lVu4fyikseg/5tSoGdjfrVIloq7lVu4fyikseg-800.webp',
     date: '2024-12-02'
   },
   {
@@ -46,7 +46,7 @@ const ARTICLES = [
     section: 'volny-cas',
     tags: ['Volný čas'],
     excerpt: 'Nejkrásnější místa máme často za domem...',
-    image: 'https://framerusercontent.com/images/xMFYCZ6erWNrsI5nYRiU1FmxqZ4.jpg?width=1200',
+    image: 'assets/images/web/xMFYCZ6erWNrsI5nYRiU1FmxqZ4/xMFYCZ6erWNrsI5nYRiU1FmxqZ4-800.webp',
     date: '2024-12-03'
   },
   {
@@ -56,7 +56,7 @@ const ARTICLES = [
     section: 'volny-cas',
     tags: ['Aromatherapy', 'Relaxation'],
     excerpt: 'Explore the benefits of essential oils and how to use them for relaxation and rejuvenation.',
-    image: 'https://framerusercontent.com/images/27YZ7YC70cRVYnjs2bIdyVDBuVw.webp?width=1200',
+    image: 'assets/images/web/27YZ7YC70cRVYnjs2bIdyVDBuVw/27YZ7YC70cRVYnjs2bIdyVDBuVw-800.webp',
     date: '2024-12-04'
   },
   {
@@ -66,7 +66,7 @@ const ARTICLES = [
     section: 'volny-cas',
     tags: ['Volný čas'],
     excerpt: 'Sip your way to calmness with these soothing herbal teas and their incredible benefits.',
-    image: 'https://framerusercontent.com/images/vp40Vp5PnNE0AoXC4Hn7Vq3e8Xk.jpg?scale-down-to=1024',
+    image: 'assets/images/web/vp40Vp5PnNE0AoXC4Hn7Vq3e8Xk/vp40Vp5PnNE0AoXC4Hn7Vq3e8Xk-800.webp',
     date: '2024-12-06'
   },
   {
@@ -76,7 +76,7 @@ const ARTICLES = [
     section: 'zavody',
     tags: ['Soutěže', 'ZKO Mladcová', 'ZVV 1'],
     excerpt: 'Náš historicky první závod na domácí půdě ZKO Zlín Mladcová.',
-    image: 'https://framerusercontent.com/images/wh8nUqxzw23FvuL0Fa1YI0OWXvI.jpg?width=1200',
+    image: 'assets/images/web/wh8nUqxzw23FvuL0Fa1YI0OWXvI/wh8nUqxzw23FvuL0Fa1YI0OWXvI-800.webp',
     date: '2023-04-22'
   },
   {
@@ -86,7 +86,7 @@ const ARTICLES = [
     section: 'zavody',
     tags: ['Soutěže', 'ZKO Hranice', 'ZVV 1'],
     excerpt: 'Learn how to practice forest bathing to recharge and reduce stress.',
-    image: 'https://framerusercontent.com/images/dZJKxKnuFey88P320coNdIo.jpeg?scale-down-to=1024',
+    image: 'assets/images/web/dZJKxKnuFey88P320coNdIo/dZJKxKnuFey88P320coNdIo-800.webp',
     date: '2024-12-08'
   },
   {
@@ -96,7 +96,7 @@ const ARTICLES = [
     section: 'zavody',
     tags: ['Soutěže', 'HDR', 'run'],
     excerpt: 'Soutěže nejsou jen o výkonu. Jde o společně strávený čas, budování vztahu a relax.',
-    image: 'https://framerusercontent.com/images/O1osYKWJBfR5yGJFKrMyfyAugQI.jpeg?scale-down-to=1024',
+    image: 'assets/images/web/O1osYKWJBfR5yGJFKrMyfyAugQI/O1osYKWJBfR5yGJFKrMyfyAugQI-800.webp',
     date: '2023-09-02'
   },
   {
@@ -106,11 +106,37 @@ const ARTICLES = [
     section: 'volny-cas',
     tags: ['vrh A'],
     excerpt: 'Informace o plánovaném vrhu "A"',
-    image: 'https://framerusercontent.com/images/d9ljyi6WpDwXafHHVrYo8NnmEcg.jpeg?width=1200',
+    image: 'assets/images/web/d9ljyi6WpDwXafHHVrYo8NnmEcg/d9ljyi6WpDwXafHHVrYo8NnmEcg-800.webp',
     date: '2026-07-06',
     listingHidden: true
   }
 ];
+
+
+function pickVariant(entry, preferred) {
+  if (!entry || !entry.variants) return null;
+  const larger = entry.variants.filter(v => v.width >= preferred);
+  return (larger[0] || entry.variants[entry.variants.length - 1]);
+}
+
+function optimizedPicture(imagePathOrId, alt, preferred = 800) {
+  // imagePathOrId may already be an optimized path like assets/images/web/ID/ID-800.webp
+  const m = String(imagePathOrId || '').match(/assets\/images\/web\/([^/]+)\//);
+  const id = m ? m[1] : null;
+  const prefix = (typeof location !== 'undefined' && (location.pathname.includes('/arya/') || location.pathname.includes('/articles-blog/'))) ? '../' : '';
+  if (!id || typeof IMAGE_MANIFEST === 'undefined' || !IMAGE_MANIFEST[id]) {
+    return `<div class="arya-preview__img"><img src="${prefix}${imagePathOrId}" alt="${alt}" loading="lazy" decoding="async" /></div>`;
+  }
+  const entry = IMAGE_MANIFEST[id];
+  const display = pickVariant(entry, preferred);
+  const srcsetWebp = entry.variants.map(v => `${prefix}${v.webp} ${v.width}w`).join(', ');
+  const srcsetJpg = entry.variants.map(v => `${prefix}${v.jpg} ${v.width}w`).join(', ');
+  return `<div class="arya-preview__img"><picture>
+    <source type="image/webp" srcset="${srcsetWebp}" sizes="(max-width: 900px) 100vw, 360px" />
+    <img src="${prefix}${display.jpg}" srcset="${srcsetJpg}" sizes="(max-width: 900px) 100vw, 360px"
+      width="${display.width}" height="${display.height}" alt="${alt}" loading="lazy" decoding="async" />
+  </picture></div>`;
+}
 
 /** Relative path prefix when called from arya/*.html */
 function articleHref(article, fromArticlePage) {
@@ -124,7 +150,7 @@ function renderPreviewCard(article, { fromArticlePage = false } = {}) {
     .map(t => `<span class="arya-tag">${t}</span>`)
     .join('');
   const img = article.image
-    ? `<div class="arya-preview__img"><img src="${article.image}" alt="${article.title}" loading="lazy" /></div>`
+    ? optimizedPicture(article.image, article.title, 800)
     : `<div class="arya-preview__img arya-preview__img--empty"></div>`;
 
   return `
