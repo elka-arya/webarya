@@ -1,0 +1,13 @@
+---
+description: Autorem všech článků na webu ARYA je Lenka Kamasová
+globs: "{arya,articles-blog}/**/*.html"
+alwaysApply: false
+---
+
+# Autor článků
+
+Autorem všech článků (Arya i Blog) je vždy **Lenka Kamasová**.
+
+- V `.article-arya__author-name` i `.article-blog__author` používej jen toto jméno.
+- `alt` u avataru autora nastav na `Lenka Kamasová`.
+- Nepoužívej placeholderová jména ze šablon (Amir Khan, James Nakamura, Kiran Mehta, Aria Fernandez apod.).

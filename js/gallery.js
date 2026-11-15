@@ -1,140 +1,160 @@
 /**
- * Reusable PhotoSwipe 5 gallery for all article pages.
- * Auto-initializes every `.article-gallery` on the page.
- * Future galleries only need the same markup — no per-page JS.
+ * In-page photo viewer for article/page galleries only.
+ * Listing heroes and article preview cards navigate normally (no lightbox).
  */
 (function () {
-  const GALLERY_SELECTOR = '.article-gallery';
-  const ITEM_SELECTOR = 'a.article-gallery__item';
+  var LINK_SELECTOR = 'a.article-gallery__item, a.page-gallery__item';
+  var items = [];
+  var index = 0;
+  var overlay;
+  var imgEl;
+  var counterEl;
+  var prevBtn;
+  var nextBtn;
 
-  function assetPrefix() {
-    // Root pages vs nested arya/ or articles-blog/
-    const depth = window.location.pathname.split('/').filter(Boolean).length;
-    // pathname like /arya/foo.html => depth 2 => ../
-    // pathname like /arya.html => depth 1 => ''
-    const path = window.location.pathname;
-    if (path.includes('/arya/') || path.includes('/articles-blog/')) return '../';
-    return '';
-  }
-
-  function resolvePath(path) {
-    if (!path) return path;
-    if (/^https?:\/\//i.test(path) || path.startsWith('/')) return path;
-    return assetPrefix() + path.replace(/^\.\.\//, '');
-  }
-
-  /** Ensure gallery items are PhotoSwipe-ready anchors */
-  function normalizeGallery(gallery) {
-    const items = [...gallery.querySelectorAll('.article-gallery__item, a.article-gallery__item, button.article-gallery__item')];
-    items.forEach((el, index) => {
-      const img = el.tagName === 'IMG' ? el : el.querySelector('img');
-      if (!img) return;
-
-      let anchor = el;
-      if (el.tagName !== 'A') {
-        anchor = document.createElement('a');
-        anchor.className = 'article-gallery__item';
-        // Move img into anchor and replace original node
-        el.replaceWith(anchor);
-        anchor.appendChild(img);
-      }
-
-      const fullSrc =
-        anchor.getAttribute('href') ||
-        img.currentSrc ||
-        img.getAttribute('data-full') ||
-        img.getAttribute('src');
-
-      if (!anchor.getAttribute('href') || anchor.getAttribute('href') === '#') {
-        anchor.setAttribute('href', fullSrc);
-      }
-
-      // Dimensions for PhotoSwipe (required for correct open animation)
-      const w = img.naturalWidth || parseInt(img.getAttribute('width'), 10) || 1600;
-      const h = img.naturalHeight || parseInt(img.getAttribute('height'), 10) || 1200;
-      if (!anchor.dataset.pswpWidth) anchor.dataset.pswpWidth = String(w);
-      if (!anchor.dataset.pswpHeight) anchor.dataset.pswpHeight = String(h);
-
-      if (!img.alt) {
-        img.alt = `Fotografie ${index + 1}`;
-      }
-      if (!anchor.getAttribute('aria-label')) {
-        anchor.setAttribute('aria-label', `Zvětšit fotografii ${index + 1}: ${img.alt}`);
-      }
-      anchor.setAttribute('role', 'button');
-
-      // Prefer highest optimized src for lightbox if provided
-      const full = img.getAttribute('data-full') || img.getAttribute('data-pswp-src');
-      if (full) {
-        anchor.setAttribute('href', resolvePath(full));
-        if (img.dataset.fullWidth) anchor.dataset.pswpWidth = img.dataset.fullWidth;
-        if (img.dataset.fullHeight) anchor.dataset.pswpHeight = img.dataset.fullHeight;
-      }
-    });
-  }
-
-  async function init() {
-    const galleries = document.querySelectorAll(GALLERY_SELECTOR);
-    if (!galleries.length) return;
-
-    galleries.forEach(normalizeGallery);
-
-    // Wait for images so naturalWidth/Height are accurate when possible
-    await Promise.all(
-      [...document.querySelectorAll(`${GALLERY_SELECTOR} img`)].map(
-        (img) =>
-          img.complete
-            ? Promise.resolve()
-            : new Promise((resolve) => {
-                img.addEventListener('load', resolve, { once: true });
-                img.addEventListener('error', resolve, { once: true });
-              })
-      )
+  function srcFrom(item) {
+    var img = item.querySelector('img');
+    return (
+      (img && (img.getAttribute('data-full') || img.getAttribute('data-pswp-src'))) ||
+      (item.getAttribute && item.getAttribute('href')) ||
+      (img && (img.currentSrc || img.src)) ||
+      ''
     );
-    galleries.forEach(normalizeGallery);
+  }
 
-    const prefix = assetPrefix();
-    const [{ default: PhotoSwipeLightbox }, { default: PhotoSwipe }] = await Promise.all([
-      import(`${prefix}vendor/photoswipe/photoswipe-lightbox.esm.min.js`),
-      import(`${prefix}vendor/photoswipe/photoswipe.esm.min.js`),
-    ]);
+  function altFrom(item) {
+    var img = item.querySelector('img');
+    return (img && img.getAttribute('alt')) || 'Fotografie';
+  }
 
-    // Inject CSS once
-    if (!document.getElementById('photoswipe-css')) {
-      const link = document.createElement('link');
-      link.id = 'photoswipe-css';
-      link.rel = 'stylesheet';
-      link.href = `${prefix}vendor/photoswipe/photoswipe.css`;
-      document.head.appendChild(link);
+  function galleryItemsFor(item) {
+    var galleryRoot = item.closest && item.closest('.article-gallery, .page-gallery');
+    if (galleryRoot) {
+      return Array.prototype.slice.call(galleryRoot.querySelectorAll(LINK_SELECTOR));
     }
-
-    const lightbox = new PhotoSwipeLightbox({
-      gallery: GALLERY_SELECTOR,
-      children: ITEM_SELECTOR,
-      pswpModule: PhotoSwipe,
-      loop: true,
-      showHideAnimationType: 'fade',
-      bgOpacity: 0.92,
-      padding: { top: 40, bottom: 40, left: 40, right: 40 },
-      wheelToZoom: true,
-      // Accessibility / UX defaults in PhotoSwipe 5:
-      // Esc closes, arrows navigate, swipe works, focus trap built-in
-    });
-
-    lightbox.on('uiRegister', function () {
-      // Ensure close / prev / next have aria labels (PhotoSwipe defaults are OK;
-      // reinforce for screen readers)
-      lightbox.pswp?.element?.setAttribute('aria-label', 'Galerie fotografií');
-    });
-
-    lightbox.init();
+    return [item];
   }
 
-  if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', () => {
-      init().catch((err) => console.error('[gallery]', err));
-    });
-  } else {
-    init().catch((err) => console.error('[gallery]', err));
+  function resolveItem(target) {
+    if (!target || !target.closest) return null;
+    if (target.closest('.nav, .footer, .article-arya__author, .arya-page-hero, .arya-content, .recommended')) {
+      return null;
+    }
+    var link = target.closest(LINK_SELECTOR);
+    if (!link) return null;
+    if (link.closest('.arya-page-hero, .arya-card, .arya-preview')) return null;
+    return link;
   }
+
+  function ensureOverlay() {
+    if (overlay) return;
+    overlay = document.createElement('div');
+    overlay.className = 'photo-viewer';
+    overlay.setAttribute('role', 'dialog');
+    overlay.setAttribute('aria-modal', 'true');
+    overlay.setAttribute('aria-label', 'Prohlížení fotografie');
+    overlay.hidden = true;
+    overlay.innerHTML =
+      '<button type="button" class="photo-viewer__close" aria-label="Zavřít">&times;</button>' +
+      '<button type="button" class="photo-viewer__nav photo-viewer__nav--prev" aria-label="Předchozí fotografie">&#10094;</button>' +
+      '<button type="button" class="photo-viewer__nav photo-viewer__nav--next" aria-label="Další fotografie">&#10095;</button>' +
+      '<figure class="photo-viewer__stage">' +
+      '<img class="photo-viewer__img" alt="" />' +
+      '<figcaption class="photo-viewer__counter"></figcaption>' +
+      '</figure>';
+    document.body.appendChild(overlay);
+
+    imgEl = overlay.querySelector('.photo-viewer__img');
+    counterEl = overlay.querySelector('.photo-viewer__counter');
+    prevBtn = overlay.querySelector('.photo-viewer__nav--prev');
+    nextBtn = overlay.querySelector('.photo-viewer__nav--next');
+
+    overlay.querySelector('.photo-viewer__close').addEventListener('click', close);
+    prevBtn.addEventListener('click', function (e) {
+      e.stopPropagation();
+      show(index - 1);
+    });
+    nextBtn.addEventListener('click', function (e) {
+      e.stopPropagation();
+      show(index + 1);
+    });
+    overlay.addEventListener('click', function (e) {
+      if (e.target === overlay) close();
+    });
+  }
+
+  function show(i) {
+    if (!items.length) return;
+    index = (i + items.length) % items.length;
+    var item = items[index];
+    imgEl.src = srcFrom(item);
+    imgEl.alt = altFrom(item);
+    counterEl.textContent = items.length > 1 ? index + 1 + ' / ' + items.length : '';
+    var many = items.length > 1;
+    prevBtn.hidden = !many;
+    nextBtn.hidden = !many;
+  }
+
+  function open(item) {
+    ensureOverlay();
+    items = galleryItemsFor(item);
+    var start = items.indexOf(item);
+    if (start < 0) {
+      items = [item];
+      start = 0;
+    }
+    overlay.hidden = false;
+    document.body.classList.add('photo-viewer-open');
+    show(start);
+  }
+
+  function close() {
+    if (!overlay || overlay.hidden) return;
+    overlay.hidden = true;
+    imgEl.removeAttribute('src');
+    document.body.classList.remove('photo-viewer-open');
+  }
+
+  document.addEventListener(
+    'click',
+    function (e) {
+      var item = resolveItem(e.target);
+      if (!item) return;
+      e.preventDefault();
+      e.stopPropagation();
+      open(item);
+    },
+    true
+  );
+
+  document.addEventListener(
+    'auxclick',
+    function (e) {
+      if (!resolveItem(e.target)) return;
+      e.preventDefault();
+    },
+    true
+  );
+
+  document.addEventListener(
+    'keydown',
+    function (e) {
+      if (!overlay || overlay.hidden) return;
+      if (e.key === 'Escape') {
+        e.preventDefault();
+        e.stopPropagation();
+        close();
+        return;
+      }
+      if (e.key === 'ArrowLeft') {
+        e.preventDefault();
+        show(index - 1);
+      }
+      if (e.key === 'ArrowRight') {
+        e.preventDefault();
+        show(index + 1);
+      }
+    },
+    true
+  );
 })();

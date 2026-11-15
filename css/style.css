@@ -200,32 +200,81 @@ ul {
 .hero__content {
   position: absolute;
   top: 50%;
-  left: var(--gutter);
-  right: 50%;
+  left: 0;
+  right: 0;
+  padding: 0 var(--gutter);
   transform: translateY(-55%);
   z-index: 2;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: start;
 }
 
 .hero__heading {
+  grid-column: 1 / -1;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 2rem;
+  color: #FFFFFF;
+  margin-top: 2.1em;
+  margin-bottom: 0;
+}
+
+.hero__label {
+  font-family: var(--font-heading);
+  font-size: clamp(1.05rem, 1.8vw, 1.45rem);
+  font-weight: 400;
+  line-height: 1.4;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  white-space: nowrap;
+  flex-shrink: 0;
+  margin-top: 0.6em;
+}
+
+.hero__heading-lower {
   display: flex;
   flex-direction: column;
+  align-items: flex-end;
+  text-align: right;
+  margin-top: 4.2em;
   font-family: var(--font-heading);
-  font-size: clamp(3rem, 6vw, 5.5rem);
+  font-size: clamp(2.75rem, 5.5vw, 5rem);
   font-weight: 400;
   line-height: 1.05;
   letter-spacing: 0.02em;
-  color: #FFFFFF;
-  text-transform: lowercase;
-  margin-bottom: 1.5rem;
+  text-transform: none;
+}
+
+.hero__name-line {
+  display: block;
+  white-space: nowrap;
+  text-transform: none;
+}
+
+.hero__name-main {
+  text-transform: uppercase;
+}
+
+.hero__heading-de {
+  /* Aboreto is unicase (no lowercase glyphs) — render "de" in body font */
+  font-family: var(--font-body);
+  font-weight: 300;
+  font-size: 0.72em;
+  letter-spacing: 0.06em;
+  text-transform: none;
 }
 
 .hero__subtitle {
+  grid-column: 1;
   font-family: var(--font-body);
-  font-size: clamp(0.9rem, 1.4vw, 1rem);
-  font-weight: 300;
-  color: rgba(255, 255, 255, 0.88);
-  max-width: 400px;
+  font-size: clamp(1.25rem, 2vw, 1.45rem);
+  font-weight: 400;
+  color: rgba(255, 255, 255, 0.93);
+  max-width: 480px;
   line-height: 1.65;
+  margin-top: 1.65em;
 }
 
 /* ---------- Expertise / Cards ---------- */
@@ -489,34 +538,44 @@ ul {
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: clamp(3rem, 7vw, 5rem) var(--gutter);
+  --banner-logo-w: clamp(150px, 18vw, 280px);
+  /* Logo is ~0.75 tall relative to width — keep full dog visible */
+  min-height: calc(var(--banner-logo-w) * 0.85 + clamp(3rem, 6vw, 5rem));
+  padding: clamp(2.5rem, 5vw, 4.5rem) var(--gutter);
   background: var(--color-bg);
-  overflow: hidden;
+  overflow: visible;
   text-align: center;
 }
 
 .contact-banner__leaf {
   position: absolute;
-  top: 0;
-  bottom: 0;
-  width: clamp(160px, 20vw, 280px);
+  top: 50%;
+  width: var(--banner-logo-w);
+  max-height: calc(var(--banner-logo-w) * 0.8);
   pointer-events: none;
 }
 
 .contact-banner__leaf--left {
-  left: 0;
+  left: var(--gutter);
+  transform: translateY(-50%) scaleX(-1);
 }
 
 .contact-banner__leaf--right {
-  right: 0;
-  transform: scaleX(-1);
+  right: var(--gutter);
+  transform: translateY(-50%);
 }
 
 .contact-banner__leaf img {
   width: 100%;
-  height: 100%;
+  height: auto;
+  max-height: 100%;
   object-fit: contain;
   object-position: center;
+  display: block;
+}
+
+.contact-banner__leaf--right img {
+  opacity: 0.18;
 }
 
 .contact-banner__center {
@@ -807,16 +866,144 @@ ul {
     max-width: 100%;
   }
 
+  .hero__content {
+    grid-template-columns: 1fr;
+  }
+
   .hero__heading {
-    font-size: clamp(2.5rem, 10vw, 4rem);
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+
+  .hero__label {
+    white-space: normal;
+    letter-spacing: 0.18em;
+    font-size: clamp(1rem, 3.8vw, 1.25rem);
+    margin-top: 0.4em;
+  }
+
+  .hero__heading-lower {
+    align-self: flex-end;
+    margin-top: 1.5em;
+    font-size: clamp(2rem, 9vw, 3.5rem);
+  }
+
+  .hero__name-line {
+    white-space: normal;
+  }
+
+  .hero__subtitle {
+    max-width: 100%;
   }
 
   .contact-banner__leaf {
-    width: 120px;
-    opacity: 0.6;
+    width: clamp(110px, 26vw, 150px);
+    max-height: calc(clamp(110px, 26vw, 150px) * 0.8);
+  }
+
+  .contact-banner__leaf--right img {
+    opacity: 0.15;
   }
 
   .contact-banner__text {
     font-size: 0.8rem;
+  }
+}
+
+/* ---------- In-page photo viewer ---------- */
+body.photo-viewer-open {
+  overflow: hidden;
+}
+
+.photo-viewer {
+  position: fixed;
+  inset: 0;
+  z-index: 10000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(12, 12, 12, 0.92);
+  padding: 3.5rem 4.5rem;
+}
+
+.photo-viewer[hidden] {
+  display: none;
+}
+
+.photo-viewer__stage {
+  margin: 0;
+  max-width: 100%;
+  max-height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.photo-viewer__img {
+  max-width: min(96vw, 1400px);
+  max-height: calc(100vh - 7rem);
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.35);
+}
+
+.photo-viewer__counter {
+  color: rgba(255, 255, 255, 0.75);
+  font-size: 0.85rem;
+  letter-spacing: 0.08em;
+}
+
+.photo-viewer__close,
+.photo-viewer__nav {
+  position: absolute;
+  border: 0;
+  background: transparent;
+  color: #fff;
+  cursor: pointer;
+  line-height: 1;
+  padding: 0.4rem;
+}
+
+.photo-viewer__close {
+  top: 0.85rem;
+  right: 0.9rem;
+  z-index: 1;
+  width: 2.75rem;
+  height: 2.75rem;
+  font-size: 1.85rem;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.16);
+}
+
+.photo-viewer__nav {
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 2.2rem;
+  padding: 1rem;
+}
+
+.photo-viewer__nav--prev {
+  left: 0.4rem;
+}
+
+.photo-viewer__nav--next {
+  right: 0.4rem;
+}
+
+.photo-viewer__close:hover,
+.photo-viewer__nav:hover {
+  opacity: 0.7;
+}
+
+@media (max-width: 700px) {
+  .photo-viewer {
+    padding: 3.5rem 1rem 2rem;
+  }
+
+  .photo-viewer__nav {
+    font-size: 1.6rem;
+    padding: 0.5rem;
   }
 }
