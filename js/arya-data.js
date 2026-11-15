@@ -85,9 +85,9 @@ const ARTICLES = [
     slug: 'arya/o-putovní-pohár-starosty-města-hranice-2025.html',
     section: 'zavody',
     tags: ['Soutěže', 'ZKO Hranice', 'ZVV 1'],
-    excerpt: 'Learn how to practice forest bathing to recharge and reduce stress.',
+    excerpt: 'Obhájily jsme prvenství z roku 2023 na závodě O putovní pohár starosty města Hranice.',
     image: 'assets/images/web/dZJKxKnuFey88P320coNdIo/dZJKxKnuFey88P320coNdIo-800.webp',
-    date: '2024-12-08'
+    date: '2025-07-12'
   },
   {
     id: 'hard-dog-race-2023',
@@ -131,10 +131,12 @@ function optimizedPicture(imagePathOrId, alt, preferred = 800) {
   const display = pickVariant(entry, preferred);
   const srcsetWebp = entry.variants.map(v => `${prefix}${v.webp} ${v.width}w`).join(', ');
   const srcsetJpg = entry.variants.map(v => `${prefix}${v.jpg} ${v.width}w`).join(', ');
+  const full = entry.full || entry.variants[entry.variants.length - 1];
   return `<div class="arya-preview__img"><picture>
     <source type="image/webp" srcset="${srcsetWebp}" sizes="(max-width: 900px) 100vw, 360px" />
     <img src="${prefix}${display.jpg}" srcset="${srcsetJpg}" sizes="(max-width: 900px) 100vw, 360px"
-      width="${display.width}" height="${display.height}" alt="${alt}" loading="lazy" decoding="async" />
+      width="${display.width}" height="${display.height}" alt="${alt}" loading="lazy" decoding="async"
+      data-full="${prefix}${full.webp || full.jpg}" data-full-width="${full.width}" data-full-height="${full.height}" />
   </picture></div>`;
 }
 

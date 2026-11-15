@@ -53,10 +53,63 @@
   box-shadow: var(--shadow-card);
 }
 
-.arya-intro__image img {
+.arya-intro__image .page-gallery__item {
+  display: block;
+  cursor: zoom-in;
+}
+
+.about-photos {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+}
+
+.about-photos .page-gallery__item {
+  position: relative;
+  display: block;
+  height: auto;
+  aspect-ratio: 8 / 5;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: var(--shadow-card);
+  cursor: zoom-in;
+  text-decoration: none;
+  color: inherit;
+}
+
+.arya-intro__image .page-gallery__item picture,
+.arya-intro__image .page-gallery__item img {
   width: 100%;
   height: auto;
   display: block;
+}
+
+.about-photos .page-gallery__item picture,
+.about-photos .page-gallery__item img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+.about-photos .page-gallery__item img {
+  object-fit: cover;
+  object-position: center;
+  border-radius: inherit;
+}
+
+.page-gallery__item:focus-visible {
+  outline: 2px solid var(--color-dark);
+  outline-offset: 3px;
+}
+
+.page-gallery__item img {
+  transition: transform 0.4s ease;
+}
+
+.page-gallery__item:hover img {
+  transform: scale(1.03);
 }
 
 .arya-intro__content {
@@ -295,6 +348,10 @@
 /* ---------- Responsive inner pages ---------- */
 @media (max-width: 860px) {
   .arya-intro__inner {
+    grid-template-columns: 1fr;
+  }
+
+  .about-photos {
     grid-template-columns: 1fr;
   }
 
